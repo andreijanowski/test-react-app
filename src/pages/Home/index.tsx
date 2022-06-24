@@ -22,7 +22,7 @@ const HomePage = () => {
 
   useEffect(() => {
     setPage(1);
-  }, [searchTerm, type, year])
+  }, [searchTerm, type, year, pageSize])
 
   const onChangeSort = (name: string) => {
     setSort((prev: any) => ({

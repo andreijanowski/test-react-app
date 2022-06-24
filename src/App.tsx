@@ -1,11 +1,9 @@
 import React from "react"
-import { Page } from "./Page"
+import HomePage from "./pages/Home";
 
 const App: React.FC<{}> = () => {
   return (
-    <>
-      <Page title="A simple React Template" />
-    </>
+    <HomePage />
   )
 }
 

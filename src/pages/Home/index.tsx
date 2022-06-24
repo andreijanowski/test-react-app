@@ -98,7 +98,7 @@ const HomePage = () => {
         />
       </div>
       {
-        tableData.length && (
+        tableData.length ? (
           <div className="flex justify-center space-x-8">
             <Pagination
               totalCount={filteredData.length}
@@ -112,7 +112,7 @@ const HomePage = () => {
               onChange={setPageSize}
             />
           </div>
-        )
+        ) : ''
       }
     </div>
   )

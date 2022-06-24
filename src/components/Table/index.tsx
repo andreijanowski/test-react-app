@@ -51,7 +51,7 @@ export const Table: React.FC<TableProps> = ({
         </thead>
         <tbody>
           {
-            data.map((row, index) => (
+            data.length ? data.map((row, index) => (
               <tr key={index} className="border-b">
                 {
                   columns.map((column) => (
@@ -61,7 +61,17 @@ export const Table: React.FC<TableProps> = ({
                   ))
                 }
               </tr>
-            ))
+            )) : (
+              <tr>
+                <td
+                  colSpan={columns.length}
+                >
+                  <div className="flex min-h-40 justify-center items-center text-lg">
+                    No Data
+                  </div>
+                </td>
+              </tr>
+            )
           }
         </tbody>
       </table>

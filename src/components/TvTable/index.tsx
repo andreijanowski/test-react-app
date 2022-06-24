@@ -2,7 +2,7 @@ import React from 'react';
 import moment from "moment";
 import clsx from "clsx";
 import { Table } from "../Table";
-import { TypeColorMap } from "../../config/constant";
+import { hashCode, intToRGB } from "../../utils";
 
 export interface TvTableProps {
   data: any[];
@@ -20,20 +20,26 @@ const TvTable: React.FC<TvTableProps> = ({
       label: 'Name',
       value: 'name',
       sort: sort.name > 0 ? 'asc' : 'desc',
-      className: 'bg-purple-500 text-white',
+      className: 'bg-purple-500 text-white w-120',
       render: (text: string, row: any) => (
         <div className="">
           <div className="mb-2 text-xl font-semibold">{text}</div>
           <div className="flex space-x-2">
             {
-              row.types.map((type: string, index: number) => (
-                <div
-                  key={index}
-                  className={clsx("py-1 px-6 rounded-full text-white capitalize flex items-center leading-1", TypeColorMap[type])}
-                >
-                  {type}
-                </div>
-              ))
+              row.types.map((type: string, index: number) => {
+                console.log(type, intToRGB(hashCode(type)));
+                return (
+                  <div
+                    key={index}
+                    className={clsx("py-1 px-6 rounded-full text-white capitalize flex items-center leading-1")}
+                    style={{
+                      backgroundColor: intToRGB(hashCode(type))
+                    }}
+                  >
+                    {type}
+                  </div>
+                )
+              })
             }
           </div>
         </div>

@@ -39,7 +39,7 @@ const Select: React.FC<SelectProps> = ({
     <div className={clsx(className)}>
       <div className="relative w-full" ref={ref}>
         <div
-          className="cursor-pointer h-11 py-2 px-4 pr-10 text-white rounded-lg bg-yellow-500 flex items-center"
+          className="capitalize cursor-pointer h-11 py-2 px-4 pr-10 text-white rounded-lg bg-yellow-500 flex items-center"
           onClick={toggleMenu}
         >
           {
@@ -55,7 +55,7 @@ const Select: React.FC<SelectProps> = ({
             options.map((option, index) => (
               <div
                 key={index}
-                className="py-2 px-4 hover:bg-gray-200 cursor-pointer whitespace-nowrap text-yellow-700 text-sm"
+                className="capitalize py-2 px-4 hover:bg-gray-200 cursor-pointer whitespace-nowrap text-yellow-700 text-sm"
                 onClick={() => handleClick(option)}
               >
                 {option.label}

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import moment from 'moment';
 import { uniq } from 'lodash';
 import { SearchInput } from "../../components/SearchInput";
@@ -19,6 +19,10 @@ const HomePage = () => {
     name: 1,
     premiere: 1
   });
+
+  useEffect(() => {
+    setPage(1);
+  }, [searchTerm, type, year])
 
   const onChangeSort = (name: string) => {
     setSort((prev: any) => ({
